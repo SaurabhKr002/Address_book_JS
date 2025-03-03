@@ -4,20 +4,25 @@ const AddressBook = require("./services/AddressBook");
 // Creating an instance of AddressBook
 const myAddressBook = new AddressBook();
 
-// Creating a new contact
-const contact1 = new Contact(
-    "Saurabh",
-    "Kumar",
-    "123 Main St",
-    "New Delhi",+
-    "Delhi",
-    "110001",
-    "9876543210",
-    "saurabh.kumar@example.com"
-);
+try {
+    // Creating a new contact with valid/invalid details
+    const contact1 = new Contact(
+        "Saurabh",  // Valid
+        "Kumar",    // Valid
+        "123 Main St",  // Valid
+        "New Delhi",    // Valid
+        "Delhi",        // Valid
+        "110001",       // Valid
+        "9876543210",   // Valid
+        "saurabh.kumar@example.com" // Valid
+    );
 
-// Adding contact to address book
-myAddressBook.addContact(contact1);
+    // Adding contact to address book
+    myAddressBook.addContact(contact1);
 
-// Display all contacts
-myAddressBook.displayContacts();
+    // Display all contacts
+    myAddressBook.displayContacts();
+
+} catch (error) {
+    console.error("Error:", error.message);
+}
