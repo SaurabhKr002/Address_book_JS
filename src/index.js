@@ -27,23 +27,28 @@ try {
         "anand.sharma@example.com"
     );
 
-    const contact3 = new Contact(
-        "Kuldeep",
-        "Yadav",
-        "789 Sector 22",
-        "Noida",
-        "Uttar Pradesh",
-        "201301",
-        "9876543212",
-        "kuldeep.yadav@example.com"
-    );
-
     // Adding contacts to the address book
     myAddressBook.addContact(contact1);
     myAddressBook.addContact(contact2);
-    myAddressBook.addContact(contact3);
 
     // Displaying contacts
+    myAddressBook.displayContacts();
+
+    // Editing "Saurabh Kumar"
+    const updatedContact = new Contact(
+        "Saurabh",
+        "Kumar",
+        "999 New St",
+        "Gurgaon",
+        "Haryana",
+        "122001",
+        "9876500000",
+        "saurabh.kumar@example.com"
+    );
+
+    myAddressBook.editContact("Saurabh Kumar", updatedContact);
+
+    // Display updated contacts
     myAddressBook.displayContacts();
 } catch (error) {
     console.log(error.message);
