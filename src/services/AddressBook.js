@@ -32,6 +32,19 @@ class AddressBook {
         console.log(`Contact '${name}' updated successfully!`);
     }
 
+    deleteContact(name) {
+        const initialLength = this.contacts.length;
+        this.contacts = this.contacts.filter(contact => 
+            `${contact.firstName} ${contact.lastName}`.toLowerCase() !== name.toLowerCase()
+        );
+
+        if (this.contacts.length < initialLength) {
+            console.log(`Contact '${name}' deleted successfully!`);
+        } else {
+            console.log(`Contact '${name}' not found!`);
+        }
+    }
+
     displayContacts() {
         if (this.contacts.length === 0) {
             console.log("No contacts found!");

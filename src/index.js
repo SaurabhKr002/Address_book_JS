@@ -50,6 +50,13 @@ try {
 
     // Display updated contacts
     myAddressBook.displayContacts();
+
+    // Deleting "Saurabh Kumar"
+    myAddressBook.deleteContact("Saurabh Kumar");
+
+    // Display contacts after deletion
+    myAddressBook.displayContacts();
+
 } catch (error) {
     console.log(error.message);
 }
