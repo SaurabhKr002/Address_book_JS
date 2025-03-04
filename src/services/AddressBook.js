@@ -87,31 +87,26 @@ class AddressBook {
 
     viewPersonsByCityOrState() {
         const groupedByCity = this.contacts.reduce((acc, contact) => {
-            if (!acc[contact.city]) {
-                acc[contact.city] = [];
-            }
-            acc[contact.city].push(contact.getFullName());
+            acc[contact.city] = (acc[contact.city] || 0) + 1;
             return acc;
         }, {});
-
+    
         const groupedByState = this.contacts.reduce((acc, contact) => {
-            if (!acc[contact.state]) {
-                acc[contact.state] = [];
-            }
-            acc[contact.state].push(contact.getFullName());
+            acc[contact.state] = (acc[contact.state] || 0) + 1;
             return acc;
         }, {});
-
-        console.log("\nContacts Grouped by City:");
-        Object.entries(groupedByCity).forEach(([city, names]) => {
-            console.log(`${city}: ${names.join(", ")}`);
+    
+        console.log("\nContacts Count by City:");
+        Object.entries(groupedByCity).forEach(([city, count]) => {
+            console.log(`${city}: ${count} contact(s)`);
         });
-
-        console.log("\nContacts Grouped by State:");
-        Object.entries(groupedByState).forEach(([state, names]) => {
-            console.log(`${state}: ${names.join(", ")}`);
+    
+        console.log("\nContacts Count by State:");
+        Object.entries(groupedByState).forEach(([state, count]) => {
+            console.log(`${state}: ${count} contact(s)`);
         });
     }
+    
 }
 
 module.exports = AddressBook;
