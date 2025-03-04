@@ -55,6 +55,10 @@ try {
     console.log("\n Searching for contacts in 'Delhi':");
     myAddressBook.searchByCityOrState("Delhi");
 
+    // View persons by City or State
+    console.log("\n Viewing persons by City and State:");
+    myAddressBook.viewPersonsByCityOrState();
+
 } catch (error) {
     console.log(error.message);
 }

@@ -84,7 +84,34 @@ class AddressBook {
             console.log(`${index + 1}. Name: ${contact.firstName} ${contact.lastName}, Address: ${contact.address}, ${contact.city}, ${contact.state}, ${contact.zip}, Phone: ${contact.phone}, Email: ${contact.email}`);
         });
     }
-    
+
+    viewPersonsByCityOrState() {
+        const groupedByCity = this.contacts.reduce((acc, contact) => {
+            if (!acc[contact.city]) {
+                acc[contact.city] = [];
+            }
+            acc[contact.city].push(contact.getFullName());
+            return acc;
+        }, {});
+
+        const groupedByState = this.contacts.reduce((acc, contact) => {
+            if (!acc[contact.state]) {
+                acc[contact.state] = [];
+            }
+            acc[contact.state].push(contact.getFullName());
+            return acc;
+        }, {});
+
+        console.log("\nContacts Grouped by City:");
+        Object.entries(groupedByCity).forEach(([city, names]) => {
+            console.log(`${city}: ${names.join(", ")}`);
+        });
+
+        console.log("\nContacts Grouped by State:");
+        Object.entries(groupedByState).forEach(([state, names]) => {
+            console.log(`${state}: ${names.join(", ")}`);
+        });
+    }
 }
 
 module.exports = AddressBook;
