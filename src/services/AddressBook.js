@@ -3,24 +3,30 @@ class AddressBook {
         this.contacts = [];
     }
 
+    // Prevent Duplicate Contacts
     addContact(contact) {
-        if (this.contacts.some(c => c.email === contact.email)) {
-            console.log(`Contact with email ${contact.email} already exists!`);
+        const isDuplicate = this.contacts.some(
+            (c) => `${c.firstName} ${c.lastName}`.toLowerCase() === `${contact.firstName} ${contact.lastName}`.toLowerCase()
+        );
+
+        if (isDuplicate) {
+            console.log(`Duplicate entry! Contact '${contact.firstName} ${contact.lastName}' already exists.`);
             return;
         }
+
         this.contacts.push(contact);
         console.log("Contact added successfully!");
     }
 
     findContactByName(name) {
-        return this.contacts.find(contact => 
-            `${contact.firstName} ${contact.lastName}`.toLowerCase() === name.toLowerCase()
+        return this.contacts.find(
+            (contact) => `${contact.firstName} ${contact.lastName}`.toLowerCase() === name.toLowerCase()
         );
     }
 
     editContact(name, updatedContact) {
-        const index = this.contacts.findIndex(contact => 
-            `${contact.firstName} ${contact.lastName}`.toLowerCase() === name.toLowerCase()
+        const index = this.contacts.findIndex(
+            (contact) => `${contact.firstName} ${contact.lastName}`.toLowerCase() === name.toLowerCase()
         );
 
         if (index === -1) {
@@ -34,8 +40,8 @@ class AddressBook {
 
     deleteContact(name) {
         const initialLength = this.contacts.length;
-        this.contacts = this.contacts.filter(contact => 
-            `${contact.firstName} ${contact.lastName}`.toLowerCase() !== name.toLowerCase()
+        this.contacts = this.contacts.filter(
+            (contact) => `${contact.firstName} ${contact.lastName}`.toLowerCase() !== name.toLowerCase()
         );
 
         if (this.contacts.length < initialLength) {
@@ -52,14 +58,15 @@ class AddressBook {
         }
         console.log("Contact List:");
         this.contacts.forEach((contact, index) => {
-            console.log(`${index + 1}. Name: ${contact.firstName} ${contact.lastName}, Address: ${contact.address}, ${contact.city}, ${contact.state}, ${contact.zip}, Phone: ${contact.phone}, Email: ${contact.email}`);
+            console.log(
+                `${index + 1}. Name: ${contact.firstName} ${contact.lastName}, Address: ${contact.address}, ${contact.city}, ${contact.state}, ${contact.zip}, Phone: ${contact.phone}, Email: ${contact.email}`
+            );
         });
     }
 
     getContactCount() {
-        return this.contacts.reduce((count) => count + 1, 0);
+        return this.contacts.length;
     }
-    
 }
 
 module.exports = AddressBook;

@@ -47,6 +47,10 @@ class Contact {
         this.phone = phone;
         this.email = email;
     }
+
+    getFullName() {
+        return `${this.firstName} ${this.lastName}`;
+    }
 }
 
 module.exports = Contact;

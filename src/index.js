@@ -1,4 +1,3 @@
-// index.js
 const Contact = require("./models/Contact");
 const AddressBook = require("./services/AddressBook");
 
@@ -28,9 +27,23 @@ try {
         "anand.sharma@example.com"
     );
 
+    const duplicateContact = new Contact(
+        "Saurabh",
+        "Kumar",
+        "789 Elm St",
+        "Bangalore",
+        "Karnataka",
+        "560001",
+        "9876543222",
+        "saurabh.duplicate@example.com"
+    );
+
     // Adding contacts to the address book
     myAddressBook.addContact(contact1);
     myAddressBook.addContact(contact2);
+    
+    // Trying to add a duplicate contact (should be rejected)
+    myAddressBook.addContact(duplicateContact);
 
     // Displaying contacts
     myAddressBook.displayContacts();
