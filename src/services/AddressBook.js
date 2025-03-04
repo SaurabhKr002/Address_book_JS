@@ -107,13 +107,6 @@ class AddressBook {
         });
     }
 
-    // Sort Contacts Alphabetically by Name
-    sortContactsByName() {
-        this.contacts.sort((a, b) => a.getFullName().localeCompare(b.getFullName()));
-        console.log("\nContacts Sorted Alphabetically:");
-        this.contacts.forEach(contact => console.log(contact.toString()));
-    }
-
     displayContacts() {
         if (this.contacts.length === 0) {
             console.log("No contacts found!");
@@ -121,6 +114,32 @@ class AddressBook {
         }
         console.log("Contact List:");
         this.contacts.forEach(contact => console.log(contact.toString()));
+    }
+    
+    // Sort Contacts Alphabetically by Name
+    sortContactsByName() {
+        this.contacts.sort((a, b) => a.getFullName().localeCompare(b.getFullName()));
+        console.log("\nContacts Sorted Alphabetically:");
+        this.contacts.forEach(contact => console.log(contact.toString()));
+    }
+
+    // Sorting Functions for UC12
+    sortByCity() {
+        this.contacts.sort((a, b) => a.city.localeCompare(b.city));
+        console.log("\nContacts Sorted by City:");
+        this.displayContacts();
+    }
+
+    sortByState() {
+        this.contacts.sort((a, b) => a.state.localeCompare(b.state));
+        console.log("\nContacts Sorted by State:");
+        this.displayContacts();
+    }
+
+    sortByZip() {
+        this.contacts.sort((a, b) => a.zip.localeCompare(b.zip));
+        console.log("\nContacts Sorted by Zip:");
+        this.displayContacts();
     }
     
 }

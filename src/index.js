@@ -16,5 +16,12 @@ try {
 myAddressBook.displayContacts();
 console.log(`\nTotal Contacts: ${myAddressBook.getContactCount()}`);
 
-// Sorting Contacts by Name
-myAddressBook.sortContactsByName();
+// Sorting Contacts
+console.log("\nSorting contacts by City:");
+myAddressBook.sortByCity();
+
+console.log("\nSorting contacts by State:");
+myAddressBook.sortByState();
+
+console.log("\nSorting contacts by Zip:");
+myAddressBook.sortByZip();
