@@ -67,6 +67,24 @@ class AddressBook {
     getContactCount() {
         return this.contacts.length;
     }
+
+    searchByCityOrState(location) {
+        const results = this.contacts.filter(contact => 
+            contact.city.toLowerCase() === location.toLowerCase() || 
+            contact.state.toLowerCase() === location.toLowerCase()
+        );
+    
+        if (results.length === 0) {
+            console.log(`No contacts found in '${location}'`);
+            return;
+        }
+    
+        console.log(`Contacts in '${location}':`);
+        results.forEach((contact, index) => {
+            console.log(`${index + 1}. Name: ${contact.firstName} ${contact.lastName}, Address: ${contact.address}, ${contact.city}, ${contact.state}, ${contact.zip}, Phone: ${contact.phone}, Email: ${contact.email}`);
+        });
+    }
+    
 }
 
 module.exports = AddressBook;

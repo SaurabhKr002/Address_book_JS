@@ -27,52 +27,34 @@ try {
         "anand.sharma@example.com"
     );
 
-    const duplicateContact = new Contact(
-        "Saurabh",
-        "Kumar",
-        "789 Elm St",
-        "Bangalore",
-        "Karnataka",
-        "560001",
+    const contact3 = new Contact(
+        "Kuldeep",
+        "Singh",
+        "789 MG Road",
+        "Mumbai",
+        "Maharashtra",
+        "400002",
         "9876543222",
-        "saurabh.duplicate@example.com"
+        "kuldeep.singh@example.com"
     );
 
-    // Adding contacts to the address book
+    // Adding contacts
     myAddressBook.addContact(contact1);
     myAddressBook.addContact(contact2);
-    
-    // Trying to add a duplicate contact (should be rejected)
-    myAddressBook.addContact(duplicateContact);
+    myAddressBook.addContact(contact3);
 
-    // Displaying contacts
+    // Display all contacts
     myAddressBook.displayContacts();
     console.log(`Total Contacts: ${myAddressBook.getContactCount()}`);
 
-    // Editing "Saurabh Kumar"
-    const updatedContact = new Contact(
-        "Saurabh",
-        "Kumar",
-        "999 New St",
-        "Gurgaon",
-        "Haryana",
-        "122001",
-        "9876500000",
-        "saurabh.kumar@example.com"
-    );
+    // Search Contacts by City
+    console.log("\n Searching for contacts in 'Mumbai':");
+    myAddressBook.searchByCityOrState("Mumbai");
 
-    myAddressBook.editContact("Saurabh Kumar", updatedContact);
+    // Search Contacts by State
+    console.log("\n Searching for contacts in 'Delhi':");
+    myAddressBook.searchByCityOrState("Delhi");
 
-    // Display updated contacts
-    myAddressBook.displayContacts();
-    console.log(`Total Contacts: ${myAddressBook.getContactCount()}`);
-
-    // Deleting "Saurabh Kumar"
-    myAddressBook.deleteContact("Saurabh Kumar");
-
-    // Display final contacts
-    myAddressBook.displayContacts();
-    console.log(`Total Contacts: ${myAddressBook.getContactCount()}`);
 } catch (error) {
     console.log(error.message);
 }
