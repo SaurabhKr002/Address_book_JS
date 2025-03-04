@@ -55,6 +55,11 @@ class AddressBook {
             console.log(`${index + 1}. Name: ${contact.firstName} ${contact.lastName}, Address: ${contact.address}, ${contact.city}, ${contact.state}, ${contact.zip}, Phone: ${contact.phone}, Email: ${contact.email}`);
         });
     }
+
+    getContactCount() {
+        return this.contacts.reduce((count) => count + 1, 0);
+    }
+    
 }
 
 module.exports = AddressBook;

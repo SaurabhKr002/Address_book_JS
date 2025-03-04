@@ -1,3 +1,4 @@
+// index.js
 const Contact = require("./models/Contact");
 const AddressBook = require("./services/AddressBook");
 
@@ -33,6 +34,7 @@ try {
 
     // Displaying contacts
     myAddressBook.displayContacts();
+    console.log(`Total Contacts: ${myAddressBook.getContactCount()}`);
 
     // Editing "Saurabh Kumar"
     const updatedContact = new Contact(
@@ -50,13 +52,14 @@ try {
 
     // Display updated contacts
     myAddressBook.displayContacts();
+    console.log(`Total Contacts: ${myAddressBook.getContactCount()}`);
 
     // Deleting "Saurabh Kumar"
     myAddressBook.deleteContact("Saurabh Kumar");
 
-    // Display contacts after deletion
+    // Display final contacts
     myAddressBook.displayContacts();
-
+    console.log(`Total Contacts: ${myAddressBook.getContactCount()}`);
 } catch (error) {
     console.log(error.message);
 }
