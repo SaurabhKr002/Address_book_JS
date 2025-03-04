@@ -51,6 +51,11 @@ class Contact {
     getFullName() {
         return `${this.firstName} ${this.lastName}`;
     }
+
+    // Override toString() method to print details
+    toString() {
+        return `Name: ${this.firstName} ${this.lastName}, Address: ${this.address}, ${this.city}, ${this.state}, ${this.zip}, Phone: ${this.phone}, Email: ${this.email}`;
+    }
 }
 
 module.exports = Contact;

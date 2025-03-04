@@ -106,6 +106,22 @@ class AddressBook {
             console.log(`${state}: ${count} contact(s)`);
         });
     }
+
+    // Sort Contacts Alphabetically by Name
+    sortContactsByName() {
+        this.contacts.sort((a, b) => a.getFullName().localeCompare(b.getFullName()));
+        console.log("\nContacts Sorted Alphabetically:");
+        this.contacts.forEach(contact => console.log(contact.toString()));
+    }
+
+    displayContacts() {
+        if (this.contacts.length === 0) {
+            console.log("No contacts found!");
+            return;
+        }
+        console.log("Contact List:");
+        this.contacts.forEach(contact => console.log(contact.toString()));
+    }
     
 }
 

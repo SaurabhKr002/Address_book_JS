@@ -16,13 +16,5 @@ try {
 myAddressBook.displayContacts();
 console.log(`\nTotal Contacts: ${myAddressBook.getContactCount()}`);
 
-// Searching Contacts by City or State
-console.log("\n Searching for contacts in 'Mumbai':");
-myAddressBook.searchByCityOrState("Mumbai");
-
-console.log("\n Searching for contacts in 'Delhi':");
-myAddressBook.searchByCityOrState("Delhi");
-
-// Viewing Persons Grouped by City and State
-console.log("\n Viewing persons by City and State:");
-myAddressBook.viewPersonsByCityOrState();
+// Sorting Contacts by Name
+myAddressBook.sortContactsByName();
